@@ -58,3 +58,6 @@ For running Sharif Judge, a Linux server with following requirements is needed:
 ## License
 
 GPL v3
+
+
+# Translate parts visible to students to Simplified Chinese
