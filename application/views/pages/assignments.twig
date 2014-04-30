@@ -6,8 +6,8 @@
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-folder-open{% endblock %}
-{% block title %}Assignments{% endblock %}
-{% block head_title %}Assignments{% endblock %}
+{% block title %}作业列表{% endblock %}
+{% block head_title %}作业列表{% endblock %}
 
 
 
@@ -32,15 +32,15 @@
 <table class="sharif_table">
 <thead>
 <tr>
-	<th>Select</th>
-	<th>Name</th>
-	<th>Problems</th>
-	<th>Submissions</th>
-	<th>Coefficient</th>
-	<th>Start Time</th>
-	<th>Finish Time</th>
-	<th>Status</th>
-	<th>PDF</th>
+	<th>选择作业</th>
+	<th>名字</th>
+	<th>题目列表</th>
+	<th>已提交程序个数</th>
+	<th>积分比例</th>
+	<th>开始时间</th>
+	<th>截止时间</th>
+	<th>状态</th>
+	<th>作业描述</th>
 	{% if user.level > 0 %}
 	<th>Actions</th>
 	{% endif %}

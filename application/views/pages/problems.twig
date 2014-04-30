@@ -70,10 +70,10 @@ $(document).ready(function(){
 		<table class="sharif_table">
 			<thead>
 			<tr>
-				<th rowspan="2">#</th>
-				<th rowspan="2">Problem</th>
-				<th rowspan="2">Score</th>
-				<th rowspan="2">Upload<br>Only</th>
+				<th rowspan="2">题号</th>
+				<th rowspan="2">名字</th>
+				<th rowspan="2">得分</th>
+				<th rowspan="2">不评判</th>
 			</tr>
 			</thead>
 			{% for one_problem in all_problems %}
@@ -91,13 +91,13 @@ $(document).ready(function(){
 
 	{% if can_submit %}
 	<div class="problems_widget">
-		<p><i class="fa fa-upload fa-lg color11"></i> Submit</p>
+		<p><i class="fa fa-upload fa-lg color11"></i> 提交</p>
 		{{ form_open_multipart('submit') }}
 		<input type="hidden" name="problem" value="{{ problem.id }}"/>
 
 		<p class="input_p">
 			<select id="languages" name="language" class="sharif_input full-width">
-				<option value="0" selected="selected">-- Select Language --</option>
+				<option value="0" selected="selected">-- 选择编程语言 --</option>
 				{% for l in problem.allowed_languages %}
 					<option value="{{ l }}">{{ l }}</option>
 				{% endfor %}
@@ -107,7 +107,7 @@ $(document).ready(function(){
 			<input type="file" id="file" class="sharif_input full-width" name="userfile"/>
 		</p>
 		<p class="input_p">
-			<input type="submit" value="Submit" class="sharif_input"/>
+			<input type="submit" value="上传程序" class="sharif_input"/>
 		</p>
 		</form>
 	</div>

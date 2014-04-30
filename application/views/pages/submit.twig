@@ -6,8 +6,8 @@
 {% set selected = 'submit' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-location-arrow{% endblock %}
-{% block title %}Submit{% endblock %}
-{% block head_title %}Submit{% endblock %}
+{% block title %}提交程序{% endblock %}
+{% block head_title %}提交程序{% endblock %}
 
 
 
@@ -35,13 +35,13 @@
 {% if error != 'none' %}
 <p>{{ error }}</p>
 {% else %}
-	<p>Selected assignment: <span dir="auto">{{ user.selected_assignment.name }}</span></p>
-	<p>Coefficient: {{ coefficient }}%</p>
+	<p>当前在做的作业: <span dir="auto">{{ user.selected_assignment.name }}</span></p>
+	<p>积分比例: {{ coefficient }}%</p>
 	{{ form_open_multipart('submit') }}
 	<p class="input_p">
-		<label for="problems" class="tiny">Problem:</label>
+		<label for="problems" class="tiny">题目:</label>
 		<select id="problems" name ="problem" class="sharif_input">
-			<option value="0" selected="selected">-- Select Problem --</option>
+			<option value="0" selected="selected">-- 选择题目 --</option>
 			{% for problem in problems %}
 				<option dir="auto" value="{{ problem.id }}">{{ problem.name }}</option>
 			{% endfor %}
@@ -49,14 +49,14 @@
 		{{ form_error('problem','<div class="shj_error">','</div>') }}
 	</p>
 	<p class="input_p">
-		<label for="languages" class="tiny">Language:</label>
+		<label for="languages" class="tiny">编程语言:</label>
 		<select id="languages" name="language" class="sharif_input">
-			<option value="0" selected="selected">-- Select Language --</option>
+			<option value="0" selected="selected">-- 选择编程语言 --</option>
 		</select>
 		{{ form_error('language','<div class="shj_error">','</div>') }}
 	</p>
 	<p class="input_p">
-		<label for="file" class="tiny">File:</label>
+		<label for="file" class="tiny">我的程序:</label>
 		<input type="file" id="file" class="sharif_input medium" name="userfile" />
 		{% if upload_state == 'error' %}
 		<div class="shj_error">Error uploading file.</div>
@@ -65,7 +65,7 @@
 		{% endif %}
 	</p>
 	<p class="input_p">
-		<input type="submit" value="Submit" class="sharif_input"/>
+		<input type="submit" value="上传程序" class="sharif_input"/>
 	</p>
 	</form>
 {% endif %}
