@@ -61,3 +61,7 @@ GPL v3
 
 
 # Translate parts visible to students to Simplified Chinese
+
+# TODO
+
+  * support or convert C programs containing Chinese encoded with GBK
