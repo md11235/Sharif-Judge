@@ -361,6 +361,26 @@ class CI_Upload {
 
 	// --------------------------------------------------------------------
 
+    public function encode_gbk_to_utf8($filepath) {
+        $content = file_get_contents($filepath);
+
+        if(!mb_check_encoding($content, "UTF-8") ||
+           !($content === mb_convert_encoding(mb_convert_encoding($content, "UTF-32", "UTF-8" ), "UTF-8", "UTF-32"))) {
+
+            if(mb_check_encoding($content, "GBK"))
+               $content = mb_convert_encoding($content, "UTF-8", "GBK");
+
+            if (mb_check_encoding($content, "UTF-8")) {
+                $handle = fopen($filepath, "w");
+                fwrite($handle, $content);
+                fclose($handle);
+            } else {
+            }
+
+            return;
+        }
+    }
+
 	/**
 	 * Perform the file upload
 	 *
@@ -546,6 +566,8 @@ class CI_Upload {
 				return FALSE;
 			}
 		}
+
+        $this->encode_gbk_to_utf8($this->upload_path.$this->file_name);
 
 		/*
 		 * Set the finalized image dimensions
