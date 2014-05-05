@@ -6,8 +6,8 @@
 {% set selected = 'dashboard' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-dashboard{% endblock %}
-{% block title %}Dashboard{% endblock %}
-{% block head_title %}Dashboard{% endblock %}
+{% block title %}控制面板{% endblock %}
+{% block head_title %}控制面板{% endblock %}
 
 
 
@@ -75,7 +75,7 @@ $(document).ready(function () {
 	<ul>
 		<li data-row="{{ wp[0] ? wp[0]['r'] : '1' }}" data-col="{{ wp[0] ? wp[0]['c'] : '1' }}" data-sizex="{{ wp[0] ? wp[0]['x'] : '1' }}" data-sizey="{{ wp[0] ? wp[0]['y'] : '1' }}">
 			<div class="shj_widget">
-				<div class="widget_title"><i class="fa fa-calendar-o fa-lg color10"></i> Calendar</div>
+				<div class="widget_title"><i class="fa fa-calendar-o fa-lg color10"></i> 日程</div>
 				<div class="widget_scrollable scroll-wrapper">
 					<div class="scroll-content">
 						<div class="widget_contents_container" id='calendar'></div>
@@ -88,7 +88,7 @@ $(document).ready(function () {
 		    data-sizex="{{ wp[1] ? wp[1]['x'] : '1' }}" data-sizey="{{ wp[1] ? wp[1]['y'] : '1' }}">
 			<div class="shj_widget">
 				<div class="widget_title"><i class="fa fa-bell-o fa-lg color2"></i>
-					Latest Notifications
+					最新通知
 					{% if user.level >= 2 %}
 						<a title="New Notification" href="{{ site_url('notifications/add') }}" class="pull-right">
 							<i class="fa fa-plus color11"></i>
@@ -99,7 +99,7 @@ $(document).ready(function () {
 					<div class="scroll-content">
 						<div class="widget_contents_container">
 							{% if notifications|length == 0 %}
-								<p style="text-align: center;">Nothing yet...</p>
+								<p style="text-align: center;">暂时木有通知...</p>
 							{% endif %}
 							{% for notification in notifications %}
 								<div class="notif" id="number{{ notification.id }}" data-id="{{ notification.id }}">

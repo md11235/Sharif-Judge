@@ -6,8 +6,8 @@
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-folder-open{% endblock %}
-{% block title %}Assignments{% endblock %}
-{% block head_title %}Assignments{% endblock %}
+{% block title %}作业列表{% endblock %}
+{% block head_title %}作业列表{% endblock %}
 
 
 
@@ -32,15 +32,15 @@
 <table class="sharif_table">
 <thead>
 <tr>
-	<th>Select</th>
-	<th>Name</th>
-	<th>Problems</th>
-	<th>Submissions</th>
-	<th>Coefficient</th>
-	<th>Start Time</th>
-	<th>Finish Time</th>
-	<th>Status</th>
-	<th>PDF</th>
+	<th>选择作业</th>
+	<th>名字</th>
+	<th>题目列表</th>
+	<th>已提交程序个数</th>
+	<th>计分比例</th>
+	<th>开始时间</th>
+	<th>截止时间</th>
+	<th>状态</th>
+	<th>作业描述</th>
 	{% if user.level > 0 %}
 	<th>Actions</th>
 	{% endif %}
@@ -50,8 +50,8 @@
 <tr>
 	<td><i class="pointer select_assignment fa {{ item.id == user.selected_assignment.id ? 'fa-check-square-o color6' : 'fa-square-o' }} fa-2x" data-id="{{ item.id }}"></i></td>
 	<td dir="auto">{{ item.name }}</td>
-	<td><a href="{{ site_url('problems/'~item.id) }}">{{ item.problems }} problem{{ item.problems != 1 ? 's' }}</a></td>
-	<td>{{ item.total_submits }} submission{{ item.total_submits != 1 ? 's' }}</td>
+	<td><a href="{{ site_url('problems/'~item.id) }}">{{ item.problems }} 个问题</a></td>
+	<td>{{ item.total_submits }} 次提交</td>
 	<td>
 		{% if item.finished %}
 			<span style="color: red;">Finished</span>
@@ -63,9 +63,9 @@
 	<td>{{ item.finish_time }}</td>
 	<td>
 		{% if item.open %}
-			<span style="color: green;">Open</span>
+			<span style="color: green;">可提交程序</span>
 		{% else %}
-			<span style="color: red;">Close</span>
+			<span style="color: red;">已截止</span>
 		{% endif %}
 	</td>
 	<td>

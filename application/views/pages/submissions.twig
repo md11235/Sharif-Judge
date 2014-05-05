@@ -5,9 +5,9 @@
  #}
 {% set selected=view~'_submissions' %}
 {% extends 'templates/base.twig' %}
-{% block icon %}{{ view == 'all' ? 'fa-bars' : 'fa-map-marker' }}{% endblock %}
-{% block title %}{{ view|title }} Submissions{% endblock %}
-{% block head_title %}{{ view|title }} Submissions{% endblock %}
+{% block icon %}{{ view == '所有' ? 'fa-bars' : 'fa-map-marker' }}{% endblock %}
+{% block title %}{{ view|title }}提交的程序{% endblock %}
+{% block head_title %}{{ view|title }}提交的程序{% endblock %}
 
 
 
@@ -46,15 +46,15 @@
 
 {% block main_content %}
 
-<p>{{ view|title }} Submissions of <span dir="auto">{{ user.selected_assignment.name }}</span></p>
-{%  if view == 'all' %}
-<p><i class="fa fa-warning color3"></i> You cannot change your final submissions after assignment finishes.</p>
+<p><span dir="auto">{{ user.selected_assignment.name }}</span>{{ view|title }}提交的程序</p>
+{%  if view == '所有' %}
+<p><i class="fa fa-warning color3"></i> 作业提交时间截止之后不能再提交作业。</p>
 {% endif %}
 <table class="sharif_table">
 	<thead>
 		<tr>
 		{% if view == 'all' %}
-			<th width="1%" rowspan="2">Final</th>
+			<th width="6%" rowspan="2">最终提交</th>
 		{% endif %}
 		{% if user.level > 0 %}
 				{% if view == 'all' %}
@@ -65,8 +65,8 @@
 				{% endif %}
 				<th width="6%" rowspan="2">Username</th>
 				<th width="14%" rowspan="2">Name</th>
-				<th width="4%" rowspan="2">Problem</th>
-				<th width="14%" rowspan="2">Submit Time</th>
+				<th width="4%" rowspan="2">题号</th>
+				<th width="14%" rowspan="2">提交时间</th>
 				<th colspan="3">Score</th>
 				<th width="1%" rowspan="2">Language</th>
 				<th width="6%" rowspan="2">Status</th>
@@ -82,17 +82,17 @@
 				<th width="5%" class="score">Final Score</th>
 			</tr>
 		{% else %}
-				<th width="10%" rowspan="2">Problem</th>
-				<th width="30%" rowspan="2">Submit Time</th>
-				<th width="7%" colspan="3">Score</th>
-				<th width="1%" rowspan="2">Language</th>
-				<th width="30%" rowspan="2">Status</th>
-				<th width="15%" rowspan="2">Code</th>
+				<th width="10%" rowspan="2">题号</th>
+				<th width="30%" rowspan="2">提交时间</th>
+				<th width="7%" colspan="3">得分情况</th>
+				<th width="6%" rowspan="2">编程语言</th>
+				<th width="20%" rowspan="2">程序状态</th>
+				<th width="15%" rowspan="2">代码</th>
 			</tr>
 			<tr>
-				<th width="7%" class="score">Score</th>
-				<th width="7%" class="score">Delay<br>%</th>
-				<th width="7%" class="score">Final Score</th>
+				<th width="7%" class="score">原始分数</th>
+				<th width="7%" class="score">晚交作业<br>%</th>
+				<th width="7%" class="score">最终分数</th>
 			</tr>
 		{% endif %}
 	</thead>
@@ -161,7 +161,7 @@
 				{% if submission.file_type == 'zip' or submission.file_type == 'pdf' %}
 					<div class="btn shj-orange" data-type="download">Download</div>
 				{% else %}
-					<div class="btn shj-orange" data-type="code" >Code</div>
+					<div class="btn shj-orange" data-type="code" >查看</div>
 				{% endif %}
 			</td>
 			{% if user.level > 0 %}
