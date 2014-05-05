@@ -134,10 +134,10 @@
 					// builds text-only view and hover menu
 					var txtOnly = "<pre class='snippet-textonly sh_sourceCode' style='display:none;'>"+o.data('orgHtml')+"</pre>";
 					var controls = "<div class='snippet-menu sh_sourceCode' style='display:none;'><pre>"
-								  +"<a class='snippet-copy' href='#'>copy</a>"
-								  +"<a class='snippet-select' href='#'>select all</a>"
-								  +"<a class='snippet-text' href='#'>text</a>"
-								  +"<a class='snippet-window' href='#'>pop-up</a>"
+								  +"<a class='snippet-copy' href='#'>复制</a>"
+								  +"<a class='snippet-select' href='#'>全选</a>"
+								  +"<a class='snippet-text' href='#'>纯文本</a>"
+								  +"<a class='snippet-window' href='#'>弹出</a>"
 								  +"</pre></div>";
 								  
 					o.parent().append(txtOnly);	  

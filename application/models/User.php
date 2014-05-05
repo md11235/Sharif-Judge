@@ -33,7 +33,7 @@ class User extends CI_Model
 		if ($query->num_rows() != 1)
 			$this->selected_assignment = array(
 				'id' => 0,
-				'name' => 'Not Selected',
+				'name' => '尚未选择作业',
 				'finish_time' => 0,
 				'extra_time' => 0,
 				'problems' => 0

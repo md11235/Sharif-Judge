@@ -41,7 +41,7 @@ class Problems extends CI_Controller
 		if ($assignment_id === NULL)
 			$assignment_id = $this->user->selected_assignment['id'];
 		if ($assignment_id == 0)
-			show_error('No assignment selected.');
+			show_error('尚未选择作业');
 
 		$assignment = $this->assignment_model->assignment_info($assignment_id);
 
@@ -115,7 +115,7 @@ class Problems extends CI_Controller
 		if ($assignment_id === NULL)
 			$assignment_id = $this->user->selected_assignment['id'];
 		if ($assignment_id == 0)
-			show_error('No assignment selected.');
+			show_error('尚未选择作业');
 
 		$data = array(
 			'all_assignments' => $this->assignment_model->all_assignments(),
